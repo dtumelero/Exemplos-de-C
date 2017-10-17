@@ -1,3 +1,7 @@
+/*
+Exemplo de structs em linguagem c
+*/
+
 #include <stdio.h>
 
 //struct
