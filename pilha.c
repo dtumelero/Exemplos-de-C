@@ -43,10 +43,10 @@ int pilha_push(int valor)
 		pilha[topo] = valor;
 
 		printf("push=%d\n", valor);
-		return 1;
-	} else {
-		printf("push=%d - pilha cheia\n", valor);
 		return 0;
+	} else {
+		printf("ERRO - push=%d - pilha cheia\n", valor);
+		return 1;
 	}
 }
 
@@ -55,25 +55,26 @@ int pilha_pop()
 {
 	if ( pilha_vazia() == 0 )
 	{
-		valor = pilha[topo];
+		//valor = pilha[topo];
 		topo--;
 
 		printf("pop\n");
-		return 1;
-	} else {
-		printf("pop - pilha vazia\n");
 		return 0;
+	} else {
+		printf("ERRO - pop - pilha vazia\n");
+		return 1;
 	}
 }
 
-int pilha_consulta(int valor)
+int pilha_consulta()
 {
 	if ( pilha_vazia() == 0 )
 	{
-		valor = pilha[topo];
-		return 1;
-	} else
+		printf("valor do topo da pilha: %d \n", pilha[topo]);
 		return 0;
+	} else
+        printf("ERRO - pilha vazia\n");
+		return 1;
 }
 
 int main()
@@ -81,17 +82,19 @@ int main()
 	int valor;
 
 	pilha_construtor();
-	
+
 	pilha_push(4);
 	pilha_push(2);
 
-
+    pilha_consulta();
 
 	pilha_push(5);
 	pilha_push(1);
 	pilha_push(3);
 	pilha_push(2);
 
+	pilha_consulta();
+
 	pilha_pop();
 	pilha_pop();
 	pilha_pop();
@@ -99,6 +102,7 @@ int main()
 	pilha_pop();
 	pilha_pop();
 	pilha_pop();
+    pilha_consulta();
 
 	return 1;
 }
